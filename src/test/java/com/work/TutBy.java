@@ -60,7 +60,7 @@ public class TutBy {
 
     @After
     public void closeWeb() {
-        Helper.sleep(1);
+        Helper.sleep(3);
         webDriver.closeChrome();
     }
 }
