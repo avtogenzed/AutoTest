@@ -1,7 +1,7 @@
 package by.texas;
 
 public class GitB {
-    private void y() {
-        int i = 5;
+    private void x() {
+        System.out.println("Hello world");
     }
 }
