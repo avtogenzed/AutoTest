@@ -84,7 +84,7 @@ public class Helper {
 
     private static Function<By, ExpectedCondition<WebElement>> decodeStateExtractor(ExpectedElementState state) {
         switch (state) {
-            case PRESENT: return criteria -> ExpectedConditions.presenceOfElementLocated(criteria);
+            case PRESENT: return ExpectedConditions::presenceOfElementLocated;//criteria -> ExpectedConditions.presenceOfElementLocated(criteria);
             case VISIBLE: return criteria -> ExpectedConditions.visibilityOfElementLocated(criteria);
             case CLICKABLE: return criteria -> ExpectedConditions.elementToBeClickable(criteria);
         }

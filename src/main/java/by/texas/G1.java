@@ -1,7 +1,6 @@
 package by.texas;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -45,6 +44,64 @@ public class G1 {
         List<String> cloneList = new ArrayList<>(copyList);
         copyList.add("12");
         System.out.println("clone list = " + cloneList);
+
+        isStringNumber("555.0");
+
+        compareMap();
+
+        random1();
+
+       /* String[] arr = {"A ", "B ", "C "};
+        List<String> l = Arrays.asList(arr);
+        List<String> dd = l.stream().map(i -> i.replace(" ", "+1")).collect(Collectors.toList());
+
+        dd.forEach(System.out::println);*/
+        String[] arr = {"A ", "B ", "C "};
+        Object[] f = Arrays.stream(arr).map(i -> i.replace(" ", "+1")).toArray();
+
+        for(Object i:f){
+            System.out.println(i);
+        }
+    }
+
+    private static void compareMap() {
+        Map<String, String> firstMap = new HashMap<>();
+        firstMap.put("1", "abc1");
+        firstMap.put("2", "abc2");
+        firstMap.put("3", "abc3");
+        firstMap.put("4", "abc4");
+        firstMap.put("5", "abc5");
+        firstMap.put("7", "abc5");
+        Map<String, String> secondMap = new HashMap<>();
+        secondMap.put("1", "abc1");
+        secondMap.put("2", "abc2");
+        secondMap.put("3", "abc3");
+        secondMap.put("4", "abc4");
+        secondMap.put("5", "abc5");
+
+        firstMap.forEach((key, value) -> {
+            secondMap.forEach((k, v) -> {
+                if (key.equals(k)) {
+                    if(value.equals(v)){
+                        //System.out.println(key  + " equals " + k + " ; " + value + " equals " + v);
+                    }else {
+                        System.out.println("No");
+                    }
+                } //fix check dropdown
+            });
+        });
+    }
+
+    private static void isStringNumber(String line) {
+        if (line.matches("\\d+\\.*\\d*")) {
+            line = line.replace(".00", "");
+            System.out.println("---> " + line);
+        }
+        System.out.println("---");
+    }
+
+    private static void isDate(String line) {
+
     }
 
     public enum Y {
@@ -83,10 +140,10 @@ public class G1 {
 
     private static double maxValue() {
         double maxValue = 0;
-        for(int i=0; i< 5; i++) {
+        for (int i = 0; i < 5; i++) {
             int randomValue = (int) (Math.random() * ((10 - 1) + 1)) + 1;
             System.out.println("Random value = " + randomValue);
-            if(randomValue > maxValue) {
+            if (randomValue > maxValue) {
                 maxValue = randomValue;
             }
         }
@@ -103,9 +160,18 @@ public class G1 {
         return result;
     }
 
-    private static String round (){
+    private static String round() {
         double r = (int) ((Math.random() * 10) + 1);
         String ret = String.format("%.2f", r);
         return ret;
+    }
+
+    private static void random1() {
+        String[] array = {"No", "Yes"};
+        int min = 1;
+        int max = array.length - 1;
+        int randomValue = (int) ((Math.random() * (max - min)) + min);
+        String value = array[randomValue];
+        System.out.println(value);
     }
 }
