@@ -1,5 +1,5 @@
 package com.work;
 
 public class Final {
-    private String f = "f";
+    private String f = "fff";
 }
